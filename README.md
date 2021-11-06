@@ -1,3 +1,9 @@
+# Changes
+
+基于commit 40f967c62d647b614c6c
+
+
+
 # Zircon  
 这是从Fuchsia官方的20190715版本代码仓库中分离出来的Zircon代码，用于进行Zircon内核学习。可以通过简陋的Makefile脚本进行编译并在qemu上运行。  
 目前支持在ubuntu 18.04和Mac上编译运行。  
