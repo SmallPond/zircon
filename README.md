@@ -1,3 +1,23 @@
+# Changes
+
+支持树莓派4b版本， 需要下载支持树莓派4b的qemu
+
+```
+git clone https://gitlab.com/philmd/qemu.git -b raspi4_wip --depth=1 raspi4_qemu
+./configure --target-list=aarch64-softmmu
+make
+```
+
+修改 Makefile 中的qemu路径: 
+```
+/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64
+```
+
+运行：
+```
+make runrpi4
+```
+
 # Zircon  
 这是从Fuchsia官方的20190715版本代码仓库中分离出来的Zircon代码，用于进行Zircon内核学习。可以通过简陋的Makefile脚本进行编译并在qemu上运行。  
 目前支持在ubuntu 18.04和Mac上编译运行。  
