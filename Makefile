@@ -11,11 +11,17 @@ runarm:
 	./scripts/run-zircon-arm64 -z ./out/legacy-image-arm64.zbi -t ./out/qemu-boot-shim.bin
 
 runrpi:
-	qemu-system-aarch64 -kernel ./out/rpi3-boot-shim.bin -initrd ./out/legacy-image-arm64.zbi \
+	/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64 -kernel ./out/rpi3-boot-shim.bin -initrd ./out/legacy-image-arm64.zbi \
 	-display none \
 	-serial null -serial mon:stdio \
 	-machine raspi3 \
 	-dtb ./bcm2710-rpi-3-b-plus.dtb
 
+runrpi4:
+	/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64 -kernel ./out/rpi4-boot-shim.bin -initrd ./out/legacy-image-arm64.zbi \
+	-display none \
+	-serial null -serial mon:stdio \
+	-machine raspi4 \
+	-dtb ./bcm2711-rpi-4-b.dtb
 clean:
 	buildtools/gn clean out

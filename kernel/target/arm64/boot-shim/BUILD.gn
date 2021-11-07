@@ -183,3 +183,6 @@ boot_shim("qemu") {
 
 boot_shim("rpi3"){
 }
+
+boot_shim("rpi4"){
+}
