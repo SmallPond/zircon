@@ -74,7 +74,7 @@ void lk_main() {
     lk_primary_cpu_init_level(LK_INIT_LEVEL_PLATFORM_EARLY, LK_INIT_LEVEL_TARGET_EARLY - 1);
     target_early_init();
 
-    dprintf(INFO, "\nwelcome to Zircon, i am panpan\n\n");
+    dprintf(INFO, "\nwelcome to Zircon, i am dingmos\n\n");
 
     dprintf(INFO, "KASLR: .text section at %p\n", __code_start);
 

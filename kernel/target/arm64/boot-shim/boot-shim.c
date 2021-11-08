@@ -275,7 +275,7 @@ static void list_zbi(zbi_header_t* zbi) {
     })
 
 boot_shim_return_t boot_shim(void* device_tree) {
-    uart_puts("boot_shim: hi there!\n");
+    uart_puts("boot_shim: hi there, i am dingmos!\n");
 
     zircon_kernel_t* kernel = NULL;
 

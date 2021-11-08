@@ -1,5 +1,8 @@
 # Changes
+- 支持树莓派4B运行
+- 支持 mint-uart 和 pl011 uart0
 
+## qemu for raspi4
 支持树莓派4b版本， 需要下载支持树莓派4b的qemu
 
 ```
@@ -17,6 +20,10 @@ make
 ```
 make runrpi4
 ```
+
+### 注意点
+使用 qemu 加`-serial null`即使用mini-uart，去除该选项则使用 uart0。
+
 
 # Zircon  
 这是从Fuchsia官方的20190715版本代码仓库中分离出来的Zircon代码，用于进行Zircon内核学习。可以通过简陋的Makefile脚本进行编译并在qemu上运行。  

@@ -36,7 +36,7 @@ void uart_init (void)
 
 	put32(AUX_MU_CNTL_REG,3);               //Finally, enable transmitter and receiver
 }
-
+// boot-shim 时调用，后续的console 输出会走 boot-shim-config.h 文件的定义的 uart
 void uart_pputc(char c)
 {
     if(!have_inited){

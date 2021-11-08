@@ -20,6 +20,7 @@
         ],
         "cstdio": "cpp",
         "debug.h": "cpp",
-        "stdio.h": "cpp"
+        "stdio.h": "cpp",
+        "*.bak": "c"
     }
 }
