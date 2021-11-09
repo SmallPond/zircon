@@ -17,6 +17,15 @@ static const zbi_cpu_config_t cpu_config = {
         },
     },
 };
+// static const zbi_cpu_config_t cpu_config = {
+//     .cluster_count = 1,
+//     .clusters =
+//         {
+//             {
+//                 .cpu_count = 4,
+//             },
+//         },
+// };
 
 static const zbi_mem_range_t mem_config[] = {
     {
@@ -28,7 +37,7 @@ static const zbi_mem_range_t mem_config[] = {
         // memory to reserve to avoid stomping on bootloader data
         .type = ZBI_MEM_RANGE_RESERVED,
         .paddr = 0x00000000,
-        .length = 0x00020000,           // BL31 trust-firmware date
+        .length = 0x00080000,           // BL31 trust-firmware date
     },
     {
         .type = ZBI_MEM_RANGE_PERIPHERAL,
@@ -37,10 +46,10 @@ static const zbi_mem_range_t mem_config[] = {
     },
 };
 
-// static const dcfg_simple_t mini_uart_driver = {
-//     .mmio_phys = AUX_BASE,
-//     .irq = 29,
-// };
+static const dcfg_simple_t mini_uart_driver = {
+    .mmio_phys = AUX_BASE,
+    .irq = 29,
+};
 
 // static const dcfg_simple_t mini_uart_driver = {
 //     .mmio_phys = 0xfe215040,
@@ -71,12 +80,12 @@ static void append_board_boot_item(zbi_header_t* bootdata) {
                     sizeof(zbi_cpu_cluster_t) * cpu_config.cluster_count);
 
     // add kernel drivers
-    // append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_MINI_UART, &mini_uart_driver,
-    //                 sizeof(mini_uart_driver));
-    append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_PL011_UART, &uart_driver,
-                    sizeof(uart_driver));
-    append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_ARM_GIC_V2, &gicv2_driver,
-                   sizeof(gicv2_driver));
+    append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_MINI_UART, &mini_uart_driver,
+                    sizeof(mini_uart_driver));
+    // append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_PL011_UART, &uart_driver,
+    //                 sizeof(uart_driver));
+    // append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_ARM_GIC_V2, &gicv2_driver,
+    //                sizeof(gicv2_driver));
     // add memory configuration
     append_boot_item(bootdata, ZBI_TYPE_MEM_CONFIG, 0, &mem_config,
                     sizeof(zbi_mem_range_t) * countof(mem_config));
