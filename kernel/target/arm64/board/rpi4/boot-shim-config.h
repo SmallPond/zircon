@@ -31,7 +31,7 @@ static const zbi_mem_range_t mem_config[] = {
     {
         .type = ZBI_MEM_RANGE_RAM,
         .paddr = 0x00000000,
-        .length = 0x40000000, // 1GB
+        .length = 0x10000000, // 1GB
     },
     {
         // memory to reserve to avoid stomping on bootloader data
@@ -57,7 +57,7 @@ static const dcfg_simple_t mini_uart_driver = {
 // };
 /*
  * uart 0 0xfe201000
- * uart 2 
+ * uart 2 0xfe204000
 */ 
 static const dcfg_simple_t uart_driver = {
     .mmio_phys = 0xfe201000,

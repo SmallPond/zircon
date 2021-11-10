@@ -24,10 +24,16 @@ runrpi4:
 	-serial null -serial mon:stdio \
 	-machine raspi4 \
 	-dtb ./bcm2711-rpi-4-b.dtb
-runrpi4-image:
+runrpi4-img:
 	/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64 -kernel ./out/legacy-image-arm64.zbi.shim \
 	-display none \
 	-serial null -serial mon:stdio \
+	-machine raspi4 \
+	-dtb ./bcm2711-rpi-4-b.dtb
+runrpi4-img-pl011:
+	/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64 -kernel ./out/legacy-image-arm64.zbi.shim \
+	-display none \
+	-serial mon:stdio \
 	-machine raspi4 \
 	-dtb ./bcm2711-rpi-4-b.dtb
 clean:
