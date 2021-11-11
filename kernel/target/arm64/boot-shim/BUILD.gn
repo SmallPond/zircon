@@ -186,3 +186,6 @@ boot_shim("rpi3"){
 
 boot_shim("rpi4"){
 }
+
+boot_shim("rpi4-pl011"){
+}

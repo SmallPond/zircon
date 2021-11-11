@@ -6,5 +6,6 @@ vim2
 imx8mevk
 rpi3
 rpi4
+rpi4-pl011
 [x64]
 pc

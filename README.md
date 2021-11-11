@@ -1,6 +1,7 @@
 # Changes
 - 支持树莓派4B运行
 - 支持 mint-uart 和 pl011 uart0
+- pl011 uart0 初始化，可在树莓派硬件上运行
 
 ## qemu for raspi4
 支持树莓派4b版本， 需要下载支持树莓派4b的qemu

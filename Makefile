@@ -30,8 +30,9 @@ runrpi4-img:
 	-serial null -serial mon:stdio \
 	-machine raspi4 \
 	-dtb ./bcm2711-rpi-4-b.dtb
-runrpi4-img-pl011:
-	/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64 -kernel ./out/legacy-image-arm64.zbi.shim \
+runrpi4-pl011:
+	/root/raspi4_qemu/aarch64-softmmu/qemu-system-aarch64 -kernel ./out/rpi4-pl011-boot-shim.bin \
+	-initrd ./out/legacy-image-arm64.zbi \
 	-display none \
 	-serial mon:stdio \
 	-machine raspi4 \

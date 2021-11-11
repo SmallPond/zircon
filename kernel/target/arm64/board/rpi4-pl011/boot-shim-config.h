@@ -80,12 +80,12 @@ static void append_board_boot_item(zbi_header_t* bootdata) {
                     sizeof(zbi_cpu_cluster_t) * cpu_config.cluster_count);
 
     // add kernel drivers
-    append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_MINI_UART, &mini_uart_driver,
-                    sizeof(mini_uart_driver));
-    // append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_PL011_UART, &uart_driver,
-    //                 sizeof(uart_driver));
-    // append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_ARM_GIC_V2, &gicv2_driver,
-    //                sizeof(gicv2_driver));
+    // append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_MINI_UART, &mini_uart_driver,
+    //                 sizeof(mini_uart_driver));
+    append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_PL011_UART, &uart_driver,
+                    sizeof(uart_driver));
+    append_boot_item(bootdata, ZBI_TYPE_KERNEL_DRIVER, KDRV_ARM_GIC_V2, &gicv2_driver,
+                   sizeof(gicv2_driver));
     // add memory configuration
     append_boot_item(bootdata, ZBI_TYPE_MEM_CONFIG, 0, &mem_config,
                     sizeof(zbi_mem_range_t) * countof(mem_config));

@@ -39,9 +39,10 @@ FUNCTION(_start)
 
 header_end:
 # read cpu affinity, start core 0, halt rest
-    mrs     x1, mpidr_el1
-    and     x1, x1, #3
-    cbz     x1, setup
+#    mrs     x1, mpidr_el1
+#    and     x1, x1, #3
+#    cbz     x1, setup
+    b setup
 
 halt:
     # core affinity != 0, halt it
